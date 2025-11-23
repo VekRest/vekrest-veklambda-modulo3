@@ -31,6 +31,7 @@ services:
       mongodb:
         condition: service_healthy
     environment:
+      - TZ=America/Sao_Paulo
       - discovery.type=single-node
       - plugins.security.disabled=true
     ulimits:
@@ -59,6 +60,8 @@ services:
       opensearch:
         condition: service_healthy
     environment:
+      TZ: America/Sao_Paulo
+      GRAYLOG_ROOT_TIMEZONE: America/Sao_Paulo
       GRAYLOG_PASSWORD_SECRET: "f62c92ac283e4f1f969ad5e71d4c7b2e11e9bdbf5e193ae7bb4e9b4e1e956e437c98a43cd624c5ea8a2c97b9463f96e8"
       GRAYLOG_ROOT_PASSWORD_SHA2: "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918"
       GRAYLOG_HTTP_BIND_ADDRESS: "0.0.0.0:9000"
@@ -93,10 +96,14 @@ services:
     container_name: kafka
     ports:
       - "9092:9092"
+      - "9093:9093"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     depends_on:
       zookeeper:
@@ -116,8 +123,11 @@ services:
 #    ports:
 #      - "8083:8083"
 #    environment:
+#      TZ: "America/Sao_Paulo"
 #      SERVER_PORT: 8083
 #      KAFKA_BROKER: kafka:9092
+#      KAFKA_REPLICAS: 1
+#      KAFKA_PARTITIONS: 3
 #      GRAYLOG_HOST: graylog
 #      GRAYLOG_PORT: 12201
 #    depends_on:
