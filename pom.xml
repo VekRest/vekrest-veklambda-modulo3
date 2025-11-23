@@ -139,7 +139,7 @@
 		<java.version>17</java.version>
 
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.projectKey>vekclient</sonar.projectKey>
+		<sonar.projectKey>veklambda</sonar.projectKey>
 		<sonar.organization>vekrest</sonar.organization>
 	</properties>
 
@@ -147,7 +147,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub Packages</name>
-			<url>https://maven.pkg.github.com/VekRest/vekrest-vekclient-modulo1</url>
+			<url>https://maven.pkg.github.com/VekRest/vekrest-veklambda-modulo3</url>
 		</repository>
 	</distributionManagement>
 </project>
