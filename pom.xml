@@ -63,6 +63,21 @@
 		</dependency>
 		<!-- JACKSON -->
 
+		<!-- LOG -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>2.0.17</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>de.siegmar</groupId>
+			<artifactId>logback-gelf</artifactId>
+			<version>4.0.0</version>
+		</dependency>
+		<!-- LOG -->
+
 		<!-- TEST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
