@@ -1,0 +1,14 @@
+FROM container-registry.oracle.com/graalvm/native-image:23-ol8 AS builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN ./mvnw --no-transfer-progress clean install && \
+    ./mvnw --no-transfer-progress native:compile -Pnative
+
+FROM gcr.io/distroless/java-base-debian12
+
+COPY --from=builder /app/target/stock /app
+
+ENTRYPOINT ["/app"]
