@@ -5,8 +5,8 @@
     <option name="envFilePaths">
       <option value="$PROJECT_DIR$/src/main/resources/application-local.properties" />
     </option>
-    <option name="MAIN_CLASS_NAME" value="com.vekrest.vekgateway.VekgatewayApplication" />
-    <module name="vekgateway" />
+    <option name="MAIN_CLASS_NAME" value="com.vekrest.veklambda.veklambda.VeklambdaApplication" />
+    <module name="veklambda" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
