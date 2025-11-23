@@ -258,6 +258,10 @@ mvn clean install sonar:sonar -Dsonar.token={TOKEN_SONAR}
 
 #### Exemplo de mensagem hexadecimal para enviar ao tópico Kafka
 ```bash
+# key
+6b6579
+
+# value
 7b226e616d65223a2256656b222c226269727468223a22323032332d30312d3031222c2261646472657373223a7b22636570223a223033373539303430222c227374617465223a225350227d7d
 ```
 
