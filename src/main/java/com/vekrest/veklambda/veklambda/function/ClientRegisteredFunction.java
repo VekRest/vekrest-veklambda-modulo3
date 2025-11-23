@@ -10,7 +10,7 @@ public class ClientRegisteredFunction {
     @Bean
     public Consumer<ClientRegisteredMessage> clientRegisteredConsumer() {
         return consumer -> {
-            System.out.println("Um cliente deseja realizar cadastro: " + consumer.name() + ", data de nascimento: " + consumer.birth() + ", cep: " + consumer.cep() + ", estado: " + consumer.state() + "!" );
+            System.out.println("Um cliente deseja realizar cadastro: " + consumer.name() + ", data de nascimento: " + consumer.birth() + ", cep: " + consumer.address().cep() + ", estado: " + consumer.address().state() + "!" );
         };
     }
 }
