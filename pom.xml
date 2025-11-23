@@ -2,53 +2,152 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.vekrest.veklambda</groupId>
+	<artifactId>veklambda</artifactId>
+	<version>v1.0.0</version>
+
+	<name>veklambda</name>
+	<description>VekMódulo de Lambda para exibição da mensagem kafka</description>
+	<url>https://github.com/VekRest/vekrest-veklambda-modulo3</url>
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.8</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
-	<groupId>com.vekrest.veklambda</groupId>
-	<artifactId>veklambda</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>veklambda</name>
-	<description>VekMódulo de Lambda para exibição da mensagem kafka</description>
-	<url/>
+
 	<licenses>
-		<license/>
+		<license>
+			<name>GPL-3.0</name>
+			<url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+			<distribution>repo</distribution>
+		</license>
 	</licenses>
 	<developers>
-		<developer/>
+		<developer>
+			<id>devVekRest</id>
+			<name>Victor Novaes Cardoso (Vek)</name>
+			<email>victorncardoso1912@gmail.com</email>
+		</developer>
 	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
-	<properties>
-		<java.version>17</java.version>
-	</properties>
+
 	<dependencies>
+		<!-- SPRING -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-function-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+		<!-- SPRING -->
+
+		<!-- JACKSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		<!-- JACKSON -->
+
+		<!-- TEST -->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- TEST -->
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>2025.0.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.graalvm.buildtools</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+				<configuration>
+					<buildArgs>
+						<buildArg>--no-fallback</buildArg>
+						<buildArg>--install-exit-handlers</buildArg>
+						<buildArg>--report-unsupported-elements-at-runtime</buildArg>
+					</buildArgs>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<builder>paketobuildpacks/builder-jammy-buildpackless-tiny</builder>
+						<buildpacks>
+							<buildpack>paketobuildpacks/oracle</buildpack>
+							<buildpack>paketobuildpacks/java-native-image</buildpack>
+						</buildpacks>
+					</image>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
+	<profiles>
+		<profile>
+			<id>optimized</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<configuration>
+							<imageName>demo-optimized</imageName>
+							<buildArgs>
+								<buildArg>--gc=G1</buildArg>
+								<buildArg>--pgo=${project.basedir}/default.iprof</buildArg>
+								<buildArg>-march=native</buildArg>
+							</buildArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<properties>
+		<java.version>17</java.version>
+
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.projectKey>veklambda</sonar.projectKey>
+		<sonar.organization>vekrest</sonar.organization>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/VekRest/vekrest-veklambda-modulo3</url>
+		</repository>
+	</distributionManagement>
 </project>
