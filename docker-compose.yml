@@ -10,10 +10,10 @@ services:
     hostname: mongodb
     container_name: mongodb
     restart: unless-stopped
-    environment:
-      - "TZ=America/Sao_Paulo"
     ports:
       - "27017:27017"
+    environment:
+      - "TZ=America/Sao_Paulo"
     healthcheck:
       test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
       interval: 10s
@@ -27,9 +27,10 @@ services:
     image: opensearchproject/opensearch:2.4.0
     hostname: opensearch
     container_name: opensearch
-    depends_on:
-      mongodb:
-        condition: service_healthy
+    restart: unless-stopped
+    ports:
+      - "9200:9200"
+      - "9600:9600"
     environment:
       - TZ=America/Sao_Paulo
       - discovery.type=single-node
@@ -38,15 +39,14 @@ services:
       memlock:
         soft: -1
         hard: -1
-    ports:
-      - "9200:9200"
-      - "9600:9600"
+    depends_on:
+      mongodb:
+        condition: service_healthy
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:9200" ]
       interval: 10s
       timeout: 10s
       retries: 10
-    restart: on-failure
     networks:
       - vekrest-network
 
@@ -54,11 +54,10 @@ services:
     image: graylog/graylog:5.1.5
     hostname: graylog
     container_name: graylog
-    depends_on:
-      mongodb:
-        condition: service_healthy
-      opensearch:
-        condition: service_healthy
+    restart: on-failure
+    ports:
+      - "9000:9000"
+      - "12201:12201/udp"
     environment:
       TZ: America/Sao_Paulo
       GRAYLOG_ROOT_TIMEZONE: America/Sao_Paulo
@@ -68,16 +67,19 @@ services:
       GRAYLOG_HTTP_EXTERNAL_URI: "http://localhost:9000/"
       GRAYLOG_MONGODB_URI: "mongodb://mongodb:27017/graylog"
       GRAYLOG_ELASTICSEARCH_HOSTS: "http://opensearch:9200"
-    ports:
-      - "9000:9000"
-      - "12201:12201/udp"
-    restart: on-failure
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      opensearch:
+        condition: service_healthy
     networks:
       - vekrest-network
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
+    hostname: zookeeper
     container_name: zookeeper
+    restart: unless-stopped
     ports:
       - "2181:2181"
     environment:
@@ -93,7 +95,9 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
+    hostname: kafka
     container_name: kafka
+    restart: on-failure
     ports:
       - "9092:9092"
       - "9093:9093"
@@ -123,7 +127,6 @@ services:
 #    ports:
 #      - "8083:8083"
 #    environment:
-#      TZ: "America/Sao_Paulo"
 #      SERVER_PORT: 8083
 #      KAFKA_BROKER: kafka:9092
 #      KAFKA_REPLICAS: 1
