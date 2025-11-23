@@ -177,19 +177,20 @@ para mais detalhes.
 > Este projeto tem qualidade analisada pelo SonarQube Cloud. Verifique nos badges!
 
 [![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=veklambda&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=veklambda&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=alert_status&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=bugs&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=code_smells&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=coverage&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=duplicated_lines_density&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=ncloc&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=reliability_rating&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=security_rating&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=sqale_index&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=sqale_rating&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=vulnerabilities&20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=alert_status&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=bugs&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=code_smells&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=coverage&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=duplicated_lines_density&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=ncloc&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=reliability_rating&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=security_rating&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=sqale_index&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=sqale_rating&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=vulnerabilities&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
+
 
 ---
 
