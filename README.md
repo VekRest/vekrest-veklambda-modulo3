@@ -271,7 +271,7 @@ mvn clean install sonar:sonar -Dsonar.token={TOKEN_SONAR}
 docker exec -it kafka bash
 
 # Envie uma mensagem para o tópico "client.registered"
-echo '{"name":"Vek","birth":"2023-01-01","address":{"cep":"03759040","state":"SP"}}' | kafka-console-producer --broker-list localhost:9092 --topic client.registered
+echo '{"name":"Vek","birth":"2023-01-01","address":{"cep":"03759040","state":"SP"}}' | kafka-console-producer --broker-list localhost:9093 --topic client.registered
 
 # Você deve ver a mensagem sendo consumida no console da aplicação VekLambda
 ```
