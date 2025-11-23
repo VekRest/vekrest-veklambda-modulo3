@@ -1,4 +1,4 @@
-feat: package com.vekrest.veklambda.veklambda.function.dto;
+package com.vekrest.veklambda.veklambda.function.dto;
 
 import java.time.LocalDate;
 
