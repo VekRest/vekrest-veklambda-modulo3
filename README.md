@@ -15,7 +15,7 @@ Lambda VekRest: consumer kafka via Spring Boot com Docker e Maven. **Módulo 3 /
 
 > A imagem desta aplicação é atualizada a cada nova tag ou pull request na [branch main](https://github.com/VekRest/vekrest-veklambda-modulo3/tree/main)
 
-> Link da imagem no DockerHub: [vek03/vekrest-veklambda:latest](https://hub.docker.com/repository/docker/vek03/vekrest-veklambda)
+> Link da imagem no DockerHub: [vek03/vekrest-veklambda:latest](https://hub.docker.com/r/vek03/vekrest-veklambda)
 
 ---
 
