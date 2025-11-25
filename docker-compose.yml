@@ -124,11 +124,9 @@ services:
 #    image: vekrest/veklambda:latest
 #    hostname: veklambda
 #    container_name: veklambda
-#    ports:
-#      - "8083:8083"
 #    environment:
-#      SERVER_PORT: 8083
-#      KAFKA_BROKER: kafka:9092
+#      KAFKA_BROKERS: kafka:9092
+##      KAFKA_BROKERS: kafka1:9092, kafka2:9093, kafka3:9094
 #      KAFKA_REPLICAS: 1
 #      KAFKA_PARTITIONS: 3
 #      GRAYLOG_HOST: graylog
