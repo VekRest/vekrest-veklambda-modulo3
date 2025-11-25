@@ -35,8 +35,7 @@ Lambda VekRest: consumer kafka via Spring Boot com Docker e Maven. **Módulo 3 /
 
 | Variável           | Descrição                        | Exemplo         |
 |--------------------|----------------------------------|-----------------|
-| `SERVER_PORT`      | Porta onde a aplicação irá rodar | `8080`          |
-| `KAFKA_BROKER`     | Endereço do broker Kafka         | `kafka:9092`    |
+| `KAFKA_BROKERS`    | Endereço do broker Kafka         | `kafka:9092`    |
 | `KAFKA_REPLICAS`   | Número de réplicas do Kafka      | `1`             |
 | `KAFKA_PARTITIONS` | Partição do tópico Kafka         | `3`             |
 | `GRAYLOG_HOST`     | Endereço do Graylog              | `graylog`       |
@@ -55,13 +54,11 @@ docker pull vek03/vekrest-veklambda:latest
 ```bash
 docker run -d \
   --name veklambda \
-    -e SERVER_PORT=8083 \
-    -e KAFKA_BROKER=kafka:9092 \
+    -e KAFKA_BROKERS=kafka:9092 \
     -e KAFKA_REPLICAS=1 \
     -e KAFKA_PARTITIONS=3 \
     -e GRAYLOG_HOST=graylog \
     -e GRAYLOG_PORT=12201 \
-    -p 8083:8083 \
   vek03/vekrest-veklambda:latest
 ```
 
@@ -72,11 +69,8 @@ services:
     image: vek03/vekrest-veklambda:latest
     hostname: veklambda
     container_name: veklambda
-    ports:
-      - "8083:8083"
     environment:
-      SERVER_PORT: 8083
-      KAFKA_BROKER: kafka:9092
+      KAFKA_BROKERS: kafka:9092
       KAFKA_REPLICAS: 1
       KAFKA_PARTITIONS: 3
       GRAYLOG_HOST: graylog
