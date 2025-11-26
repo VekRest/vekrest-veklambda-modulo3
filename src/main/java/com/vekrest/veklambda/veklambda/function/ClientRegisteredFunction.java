@@ -13,6 +13,6 @@ public class ClientRegisteredFunction {
 
     @Bean
     public Consumer<ClientRegisteredMessage> clientRegisteredConsumer() {
-        return consumer -> LOG.info("Um cliente deseja realizar cadastro: {}!", consumer.toString());
+        return consumer -> LOG.info("VEKLAMBDA -> Um cliente deseja realizar cadastro: {}!", consumer.toString());
     }
 }
