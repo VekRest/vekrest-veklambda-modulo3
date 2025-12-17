@@ -2,7 +2,7 @@
 
 Lambda VekRest: consumer kafka via Spring Boot com Docker e Maven. **Módulo 3 / Lambda**
 
-## 🧩 PARTES DO MÓDULO 2
+## 🧩 PARTES DO MÓDULO 3
 | Aplicação | Descrição                              | Link                              |
 |-----------|----------------------------------------|-----------------------------------|
 | VekLambda | Lambda (este projeto) - Consumer Kafka | Este Repositório |
