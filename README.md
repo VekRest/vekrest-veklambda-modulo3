@@ -95,99 +95,6 @@ docker-compose up -d
 
 ---
 
-## 📘 Estrutura do Projeto
-
-```
-
-📂 vekrest-veklambda-modulo3/
-├── 📁 .commands                                ← Pasta de comandos .bat para automatizar na execução/build
-├── 📁 .github                                  ← Pasta de configuração da esteira CI/CD do Github Actions
-├── 📁 .run                                     ← Pasta de configurações da IDE para facilitar execução local
-├── 📁 src                                      ← Módulo principal da aplicação, construído com dependências do Spring
-    ├── 📁 [...]/java                           ← Pasta princípal do projeto (App)
-            ├── 📁 entities/                    ← Entidades da aplicação
-            ├── 📁 function/                    ← Função Lambda Kafka Consumer
-                ├── 📁 dto/                     ← Data Transfer Objects
-                📄 VeklambdaApplication.java    ← Classe principal do Spring Boot
-    ├── 📁 [...]/resources                      ← Variáveis de ambiente
-├── 📄 docker-compose.yml                       ← Configuração dos containers utilizados
-├── 📄 Dockerfile                               ← Configuração para build e deploy no Docker
-├── 📄 Dockerfile-graalvm                       ← Configuração para build com GraalVM (nativo)
-├── 📄 LICENCE.txt                              ← Arquivo de Licença GPL-3.0
-├── 📄 pom.xml                                  ← Arquivo de Build do Maven
-├── 📄 README.md                                ← Este arquivo de documentação
-
-````
-
----
-
-## ⚙️ Objetivo
-
-Módulo 3
-Crie uma função Lambda que escute um tópico Kafka e exiba no console a mensagem recebida, por exemplo:
-
-A mensagem chegou: <mensagem>
-Em seguida:
-
-Gere uma imagem Docker dessa aplicação.
-
-Publique a imagem no DockerHub através de uma GitHub Action configurada no repositório.
-
----
-
-## 🧩 Tecnologias Utilizadas
-
-- **Spring Boot** → Framework Back-End
-- **Java** → Linguagem de programação
-- **Maven** → Build
-- **Docker** → Containers e virtualização
-- **GraalVM** → Compilação nativa (opcional)
-- **Docker Hub** → Repositório de imagens Docker
-- **Kafka** → Mensageria
-- **Zookeeper** → Gerenciamento do Kafka
-- **MongoDB** → Banco de Dados NoSQL
-- **OpenSearch e Graylog** → Logs da Aplicação
-- **SonarQube** → Qualidade
-- **Github Actions** → CI/CD automatizado
-- **.bat** → Scripts para automatizar processos no Windows
-
----
-
-## 📌 Status do Projeto
-> 🚀 Release [v1.0.0](https://github.com/VekRest/vekrest-veklambda-modulo3/tree/v1.0.0) - Primeira versão
-
-[//]: # (- 🚧 Em desenvolvimento – Release v2.0-iot-alpha)
-
----
-
-## 📜 Licença
-> Este projeto é distribuído sob a licença GPL-3.0. Consulte o arquivo [LICENCE](LICENSE.txt)
-para mais detalhes.
-
----
-
-## ✅ Qualidade (SonarQube)
-
-> Este projeto tem qualidade analisada pelo SonarQube Cloud. Verifique nos badges!
-
-[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=veklambda&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=alert_status&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=bugs&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=code_smells&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=coverage&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=duplicated_lines_density&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=ncloc&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=reliability_rating&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=security_rating&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=sqale_index&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=sqale_rating&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=veklambda&metric=vulnerabilities&token=20d669e312f102c52a0ebbc9f9149d4b6cd876f6)](https://sonarcloud.io/summary/new_code?id=veklambda)
-
-
----
-
 ## 📦 Instalação e Configuração do Ambiente
 
 ### 1️⃣ Clone o projeto na sua máquina e baixe as dependências:
@@ -272,21 +179,35 @@ echo '{"name":"Vek","birth":"2023-01-01","address":{"cep":"03759040","state":"SP
 
 ---
 
+## 🧩 Tecnologias Utilizadas
+
+- **Spring Boot** → Framework Back-End
+- **Java** → Linguagem de programação
+- **Maven** → Build
+- **Docker** → Containers e virtualização
+- **GraalVM** → Compilação nativa (opcional)
+- **Docker Hub** → Repositório de imagens Docker
+- **Kafka** → Mensageria
+- **Zookeeper** → Gerenciamento do Kafka
+- **MongoDB** → Banco de Dados NoSQL
+- **OpenSearch e Graylog** → Logs da Aplicação
+- **SonarQube** → Qualidade
+- **Github Actions** → CI/CD automatizado
+- **.bat** → Scripts para automatizar processos no Windows
+
+---
+
+## ✅ Qualidade (SonarQube)
+
+> Este projeto tem qualidade analisada pelo SonarQube Cloud. Verifique nos badges!
+
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-dark.svg)](https://sonarcloud.io/summary/new_code?id=veklambda)
+
+---
+
 ## 📦 Esteira CI/CD Automatizada com Github Actions
 
-> A esteira CI/CD deste projeto é automatizada via Github Actions. A cada tag criada ou execução manual na branch main, a esteira é disparada.
-
-###  Steps da esteira:
-
-1️⃣ Verificação de **Vulnerabilidades** com o **Trivy** (Security)
-
-2️⃣ Análise do **Sonar Cloud** (Quality)
-
-3️⃣ Deploy da imagem do container no **DockerHub e Github Packages** (Deploy)
-
-4️⃣ Deploy do Maven Artifact no **Github Packages** (Deploy)
-
-5️⃣ Deploy da Release no **Github** (Release)
+> A esteira CI/CD deste projeto é automatizada via Github Actions. A cada tag criada a esteira é disparada.
 
 ### Para executar a Esteira pelo trigger:
 ```bash
@@ -298,23 +219,5 @@ git push origin <version>
 ```
 
 [![VekLambda CI/CD Workflow](https://github.com/VekRest/vekrest-veklambda-modulo3/actions/workflows/main.yml/badge.svg)](https://github.com/VekRest/vekrest-veklambda-modulo3/actions/workflows/main.yml)
-
----
-
-## 💡 Observações Importantes
-
-* Este projeto cumpre com o **Módulo 3 da Atividade**
-* Para este módulo, não há dependência de outros módulos
-
----
-
-## ✍️ Autor
-
-<div align="center">
-
-| [<img src="https://avatars.githubusercontent.com/u/98980071" width=115><br><sub>Victor Cardoso</sub>](https://github.com/vek03)
-| :---: |
-
-</div>
 
 ---
